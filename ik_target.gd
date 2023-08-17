@@ -9,18 +9,19 @@ class_name IKTarget
 @export var active = true
 @export var active_in_editor = true
 
+
 var flipped:
 	get: return end_bone.global_scale.x * end_bone.global_scale.y < 0
+
 
 var face:
 	get: return -1 if flipped else 1
 
+
 func _process(delta):
-	
 	if active:
 		calculate()
 	
-
 
 func calculate():
 	if end_bone and (active_in_editor or not Engine.is_editor_hint()):
